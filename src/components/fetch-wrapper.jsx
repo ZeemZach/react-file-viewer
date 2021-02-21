@@ -34,6 +34,8 @@ function withFetching(WrappedComponent, props) {
       if ('withCredentials' in xhr) {
         // XHR for Chrome/Firefox/Opera/Safari.
         xhr.open('GET', path, true);
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
       } else if (typeof XDomainRequest !== 'undefined') {
         // XDomainRequest for IE.
         xhr = new XDomainRequest();
